@@ -1,0 +1,43 @@
+.Login-Body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #e1ecec;
+}
+.Login-Card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 50px;
+}
+.Login-Title {
+  font-size: 2rem;
+  font-weight: 400;
+  color: black;
+}
+.Login-Subtitle {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #4a4a4a7e;
+  margin-bottom: 5px;
+}
+.Login-Form {
+  display: flex;
+  flex-direction: column;
+}
+.Login-Button {
+  background-color: #4931a8;
+  width: 100%;
+  color: white;
+  font-weight: 400;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.Login-Signup {
+  cursor: pointer;
+  color: blue;
+}
