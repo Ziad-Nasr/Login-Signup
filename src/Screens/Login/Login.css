@@ -4,12 +4,13 @@
   align-items: center;
   min-height: 100vh;
   min-width: 100vw;
-  background-color: #e1ecec;
+  /* background-color: #e1ecec; */
 }
 .Login-Card {
   background-color: white;
   border-radius: 15px;
   padding: 50px;
+  width: 400px;
 }
 .Login-Title {
   font-size: 2rem;
@@ -35,6 +36,7 @@
   border-radius: 5px;
   padding: 10px 20px;
   margin-top: 20px;
+  margin-bottom: 25px;
   cursor: pointer;
 }
 .Login-Signup {
