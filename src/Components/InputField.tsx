@@ -1,5 +1,5 @@
 import { Field } from "@ark-ui/react";
-
+import "./InputField.css";
 interface InputFieldProps {
   label: string;
   type: string;
@@ -16,15 +16,15 @@ export default function InputField({
   setValue,
 }: InputFieldProps) {
   return (
-    <Field.Root>
-      <Field.Label>{label}</Field.Label>
+    <Field.Root className="inputField d-flex flex-column justify-content-center">
+      <Field.Label className="formLabel">{label}</Field.Label>
       <Field.Input
         placeholder={placeholder}
         value={value}
         onChange={setValue}
         type={type}
       />
-      <Field.ErrorText>Error Info</Field.ErrorText>
+      {/* <Field.ErrorText>Error Info</Field.ErrorText> */}
     </Field.Root>
   );
 }
