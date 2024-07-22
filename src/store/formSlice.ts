@@ -1,16 +1,17 @@
+// formSlice.ts
 import { createSlice, combineReducers } from "@reduxjs/toolkit";
 
-interface Form {
+export interface Form {
   id: string;
 }
 
 type FormState = Form[];
 
-const initalFormState: FormState = [];
+const initialFormState: FormState = [];
 
 const formSlice = createSlice({
-  name: "mSform",
-  initialState: initalFormState,
+  name: "myform",
+  initialState: initialFormState,
   reducers: {
     addForm(state, action) {
       state.push(action.payload);
