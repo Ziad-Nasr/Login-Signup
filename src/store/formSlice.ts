@@ -1,23 +1,36 @@
-// formSlice.ts
-import { createSlice, combineReducers } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface Form {
   id: string;
+  firstName: string;
+  lastName: string;
+  gender: string;
+  email: string;
+  password: string;
+  dateOfBirth: string;
+  phoneNumber: string;
 }
 
-type FormState = Form[];
-
-const initialFormState: FormState = [];
+const initialFormState: Form = {
+  id: "",
+  firstName: "",
+  lastName: "",
+  gender: "",
+  email: "",
+  password: "",
+  dateOfBirth: "",
+  phoneNumber: "",
+};
 
 const formSlice = createSlice({
   name: "myform",
   initialState: initialFormState,
   reducers: {
-    addForm(state, action) {
-      state.push(action.payload);
-    },
-    removeForm(state, action) {
-      return state.filter((form) => form.id !== action.payload);
+    updateForm(state, action) {
+      return {
+        ...state,
+        ...action.payload,
+      };
     },
   },
 });
