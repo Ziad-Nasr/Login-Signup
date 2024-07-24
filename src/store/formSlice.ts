@@ -9,6 +9,15 @@ export interface Form {
   password: string;
   dateOfBirth: string;
   phoneNumber: string;
+  country: string;
+  state: string;
+  city: string;
+  address: string;
+  zipCode: string;
+  dob: string;
+  occupation: string;
+  company: string;
+  position: string;
 }
 
 const initialFormState: Form = {
@@ -20,6 +29,15 @@ const initialFormState: Form = {
   password: "",
   dateOfBirth: "",
   phoneNumber: "",
+  country: "",
+  state: "",
+  city: "",
+  address: "",
+  zipCode: "",
+  dob: "",
+  occupation: "",
+  company: "",
+  position: "",
 };
 
 const formSlice = createSlice({

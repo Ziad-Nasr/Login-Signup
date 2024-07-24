@@ -22,8 +22,8 @@ export default function InputField({
       <Field.Label className="formLabel">{label}</Field.Label>
       <div className="container">
         <div className="row">
-          {genders.map((items) => (
-            <div className="col-6">
+          {genders.map((items, index) => (
+            <div className="col-6" key={index}>
               <Field.Label htmlFor={items} className="me-3">
                 {items}
               </Field.Label>

@@ -14,6 +14,22 @@ function Signup() {
   const formFields = useFormFields(pageNumber);
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const HandlePrev = (e: any) => {
+    e.preventDefault();
+    if (pageNumber != 1) {
+      setPageNumber((page) => page - 1);
+    } else {
+    }
+  };
+
+  const HandleNext = (e: any) => {
+    e.preventDefault();
+    if (pageNumber != 3) {
+      setPageNumber((page) => page + 1);
+    } else {
+    }
+  };
+
   return (
     <div className="Signup-body d-flex justify-content-center align-items-center">
       <div className="PreContainer">
@@ -50,17 +66,38 @@ function Signup() {
           <div className="row">
             <div className="col-12 mt-3">
               {pageNumber > 1 ? (
-                <button className="btn col-3" type="reset">
+                <button
+                  className="btn col-3"
+                  onClick={(e) => {
+                    HandlePrev(e);
+                  }}
+                >
                   Back
                 </button>
               ) : (
-                <button className="btn col-3" type="reset" disabled>
+                <button className="btn col-3" disabled>
                   Back
                 </button>
               )}
-              <button className="Login-Button col-3" type="submit" onClick={() => {setPageNumber(pageNumber+1)}}>
-                Confirm
-              </button>
+              {pageNumber === 3 ? (
+                <button
+                  className="Login-Button col-3"
+                  onClick={(e) => {
+                    HandleNext(e);
+                  }}
+                >
+                  Submit
+                </button>
+              ) : (
+                <button
+                  className="Login-Button col-3"
+                  onClick={(e) => {
+                    HandleNext(e);
+                  }}
+                >
+                  Confirm
+                </button>
+              )}
             </div>
           </div>
           <div className="row">
