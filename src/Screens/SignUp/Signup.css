@@ -1,4 +1,6 @@
 .Signup-body {
   min-height: 100vh;
-  
+}
+.PreContainer {
+  width: 55%;
 }
