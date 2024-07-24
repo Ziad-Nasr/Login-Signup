@@ -1,4 +1,4 @@
-import { Field, FieldLabel } from "@ark-ui/react";
+import { Field } from "@ark-ui/react";
 import "./InputField.css";
 interface InputFieldProps {
   label: string;
@@ -31,7 +31,7 @@ export default function InputField({
                 value={value}
                 id={items}
                 onChange={setValue}
-                type="radio"
+                type={type}
                 name="gender"
               />
             </div>

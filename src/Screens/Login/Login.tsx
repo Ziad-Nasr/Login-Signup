@@ -1,7 +1,8 @@
 import "./Login.css";
 import Logo from "../../assets/badge.png";
-
+import { useNavigate } from "react-router";
 function Login() {
+  const navigate = useNavigate();
   return (
     <div className="Login-Body">
       <div className="Login-Container">
@@ -29,7 +30,15 @@ function Login() {
           </form>
           <p className="Login-Subtitle">
             Don't have an account ?{" "}
-            <span className="Login-Signup">Sign up</span> now
+            <span
+              className="Login-Signup"
+              onClick={() => {
+                navigate("/signup");
+              }}
+            >
+              Sign up
+            </span>{" "}
+            now
           </p>
         </div>
       </div>

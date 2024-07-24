@@ -6,7 +6,7 @@ import Logo from "../../assets/badge.png";
 import "./Signup.css";
 import { formActions } from "../../store/formSlice";
 import { RootState, AppDispatch } from "../../store/store";
-
+import { useNavigate } from "react-router";
 interface FormField {
   label: string;
   placeholder?: string;
@@ -17,6 +17,7 @@ interface FormField {
 }
 
 function Signup() {
+  const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
   const formItems = useSelector((state: RootState) => state.myForm);
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -126,7 +127,14 @@ function Signup() {
             <div className="col-12 mt-3">
               <p>
                 Already have an account?{" "}
-                <span className="text-primary">Login</span>
+                <span
+                  className="Login-Signup"
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
+                  Login
+                </span>
               </p>
             </div>
           </div>
