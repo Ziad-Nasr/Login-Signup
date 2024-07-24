@@ -7,78 +7,13 @@ import "./Signup.css";
 import { formActions } from "../../store/formSlice";
 import { RootState, AppDispatch } from "../../store/store";
 import { useNavigate } from "react-router";
-interface FormField {
-  label: string;
-  placeholder?: string;
-  type: string;
-  value: string;
-  action: (e: ChangeEvent<HTMLInputElement>) => void;
-  component?: React.ComponentType<any>; // For custom components like RadioField
-}
+import useFormFields from "../../useFormFields";
 
 function Signup() {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
-  const formItems = useSelector((state: RootState) => state.myForm);
+  const formFields = useFormFields();
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  const formFields: FormField[] = [
-    {
-      label: "First Name",
-      placeholder: "First name...",
-      type: "text",
-      value: formItems.firstName,
-      action: (e) =>
-        dispatch(formActions.updateForm({ firstName: e.target.value })),
-    },
-    {
-      label: "Last Name",
-      placeholder: "Last name...",
-      type: "text",
-      value: formItems.lastName,
-      action: (e) =>
-        dispatch(formActions.updateForm({ lastName: e.target.value })),
-    },
-    {
-      label: "Email",
-      placeholder: "Enter Email...",
-      type: "email",
-      value: formItems.email,
-      action: (e) =>
-        dispatch(formActions.updateForm({ email: e.target.value })),
-    },
-    {
-      label: "Phone Number",
-      placeholder: "Enter Phone Number...",
-      type: "text",
-      value: formItems.phoneNumber,
-      action: (e) =>
-        dispatch(formActions.updateForm({ phoneNumber: e.target.value })),
-    },
-    {
-      label: "Password",
-      placeholder: "Enter Password...",
-      type: "password",
-      value: formItems.password,
-      action: (e) =>
-        dispatch(formActions.updateForm({ password: e.target.value })),
-    },
-    {
-      label: "Confirm Password",
-      placeholder: "Confirm Password...",
-      type: "password",
-      value: confirmPassword,
-      action: (e) => setConfirmPassword(e.target.value),
-    },
-    {
-      label: "Gender",
-      type: "radio",
-      value: formItems.gender,
-      action: (e) =>
-        dispatch(formActions.updateForm({ gender: e.target.value })),
-      component: RadioField,
-    },
-  ];
 
   return (
     <div className="Signup-body d-flex justify-content-center align-items-center">
@@ -88,7 +23,7 @@ function Signup() {
             <div className="text-start col-12">
               <img src={Logo} alt="Logo" />
               <h2>Signup</h2>
-              <p>Enter your details to signup</p>
+              <p className="Login-Subtitle">Enter your details to signup</p>
             </div>
           </div>
           <div className="text-start row">
@@ -118,14 +53,14 @@ function Signup() {
               <button className="btn col-3" type="reset">
                 Cancel
               </button>
-              <button className="btn btn-primary col-3" type="submit">
+              <button className="Login-Button col-3" type="submit">
                 Confirm
               </button>
             </div>
           </div>
           <div className="row">
-            <div className="col-12 mt-3">
-              <p>
+            <div className="col-12 mt-1 mb-3">
+              <p className="Login-Subtitle">
                 Already have an account?{" "}
                 <span
                   className="Login-Signup"
