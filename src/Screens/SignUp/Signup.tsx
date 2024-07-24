@@ -1,18 +1,17 @@
-import { useState, ChangeEvent } from "react";
+import { useState } from "react";
 import InputField from "../../Components/InputField";
-import RadioField from "../../Components/RadioField";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Logo from "../../assets/badge.png";
 import "./Signup.css";
-import { formActions } from "../../store/formSlice";
-import { RootState, AppDispatch } from "../../store/store";
+import { AppDispatch } from "../../store/store";
 import { useNavigate } from "react-router";
 import useFormFields from "../../useFormFields";
 
 function Signup() {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
-  const formFields = useFormFields();
+  const [pageNumber, setPageNumber] = useState(1);
+  const formFields = useFormFields(pageNumber);
   const [confirmPassword, setConfirmPassword] = useState("");
 
   return (
@@ -50,10 +49,16 @@ function Signup() {
           </div>
           <div className="row">
             <div className="col-12 mt-3">
-              <button className="btn col-3" type="reset">
-                Cancel
-              </button>
-              <button className="Login-Button col-3" type="submit">
+              {pageNumber > 1 ? (
+                <button className="btn col-3" type="reset">
+                  Back
+                </button>
+              ) : (
+                <button className="btn col-3" type="reset" disabled>
+                  Back
+                </button>
+              )}
+              <button className="Login-Button col-3" type="submit" onClick={() => {setPageNumber(pageNumber+1)}}>
                 Confirm
               </button>
             </div>

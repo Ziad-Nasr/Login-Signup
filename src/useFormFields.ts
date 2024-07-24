@@ -14,12 +14,12 @@ interface FormField {
   component?: React.ComponentType<any>; // For custom components like RadioField
 }
 
-const useFormFields = (): FormField[] => {
+const useFormFields = (pageNumber: number): FormField[] => {
   const dispatch: AppDispatch = useDispatch();
   const formItems = useSelector((state: RootState) => state.myForm);
   const [confirmPassword, setConfirmPassword] = useState<string>("");
 
-  const formFields: FormField[] = [
+  const page1Fields: FormField[] = [
     {
       label: "First Name",
       placeholder: "First name...",
@@ -77,7 +77,92 @@ const useFormFields = (): FormField[] => {
     },
   ];
 
-  return formFields;
+  const page2Fields: FormField[] = [
+    {
+      label: "Country",
+      placeholder: "Country...",
+      type: "text",
+      value: formItems.country,
+      action: (e) =>
+        dispatch(formActions.updateForm({ country: e.target.value })),
+    },
+    {
+      label: "State",
+      placeholder: "State...",
+      type: "text",
+      value: formItems.state,
+      action: (e) =>
+        dispatch(formActions.updateForm({ state: e.target.value })),
+    },
+    {
+      label: "City",
+      placeholder: "City...",
+      type: "text",
+      value: formItems.city,
+      action: (e) => dispatch(formActions.updateForm({ city: e.target.value })),
+    },
+    {
+      label: "Address",
+      placeholder: "Address...",
+      type: "text",
+      value: formItems.address,
+      action: (e) =>
+        dispatch(formActions.updateForm({ address: e.target.value })),
+    },
+    {
+      label: "Zip Code",
+      placeholder: "Zip Code...",
+      type: "text",
+      value: formItems.zipCode,
+      action: (e) =>
+        dispatch(formActions.updateForm({ zipCode: e.target.value })),
+    },
+  ];
+
+  const page3Fields: FormField[] = [
+    {
+      label: "Date of Birth",
+      placeholder: "Date of Birth...",
+      type: "date",
+      value: formItems.dob,
+      action: (e) => dispatch(formActions.updateForm({ dob: e.target.value })),
+    },
+    {
+      label: "Occupation",
+      placeholder: "Occupation...",
+      type: "text",
+      value: formItems.occupation,
+      action: (e) =>
+        dispatch(formActions.updateForm({ occupation: e.target.value })),
+    },
+    {
+      label: "Company",
+      placeholder: "Company...",
+      type: "text",
+      value: formItems.company,
+      action: (e) =>
+        dispatch(formActions.updateForm({ company: e.target.value })),
+    },
+    {
+      label: "Position",
+      placeholder: "Position...",
+      type: "text",
+      value: formItems.position,
+      action: (e) =>
+        dispatch(formActions.updateForm({ position: e.target.value })),
+    },
+  ];
+
+  switch (pageNumber) {
+    case 1:
+      return page1Fields;
+    case 2:
+      return page2Fields;
+    case 3:
+      return page3Fields;
+    default:
+      return [];
+  }
 };
 
 export default useFormFields;
