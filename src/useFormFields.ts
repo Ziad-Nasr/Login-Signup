@@ -4,6 +4,7 @@ import { AppDispatch, RootState } from "./store/store";
 import { formActions } from "./store/formSlice"; // Assuming formActions is defined in formSlice
 import RadioField from "./Components/RadioField"; // Assuming RadioField is a custom component
 import React, { useState } from "react";
+import { DateField } from "./Components/DateField";
 
 interface FormField {
   label: string;
@@ -126,6 +127,7 @@ const useFormFields = (pageNumber: number): FormField[] => {
       type: "date",
       value: formItems.dob,
       action: (e) => dispatch(formActions.updateForm({ dob: e.target.value })),
+      component: DateField,
     },
     {
       label: "Occupation",

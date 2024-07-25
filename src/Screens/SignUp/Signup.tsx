@@ -107,7 +107,7 @@ function Signup() {
                 <span
                   className="Login-Signup"
                   onClick={() => {
-                    navigate("/");
+                    navigate(-1);
                   }}
                 >
                   Login
