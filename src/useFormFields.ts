@@ -5,6 +5,7 @@ import { formActions } from "./store/formSlice"; // Assuming formActions is defi
 import RadioField from "./Components/RadioField"; // Assuming RadioField is a custom component
 import React, { useState } from "react";
 import { DateField } from "./Components/DateField";
+import { ComboBoxField } from "./Components/ComboBoxField";
 
 interface FormField {
   label: string;
@@ -68,14 +69,6 @@ const useFormFields = (pageNumber: number): FormField[] => {
       value: confirmPassword,
       action: (e) => setConfirmPassword(e.target.value),
     },
-    {
-      label: "Gender",
-      type: "radio",
-      value: formItems.gender,
-      action: (e) =>
-        dispatch(formActions.updateForm({ gender: e.target.value })),
-      component: RadioField,
-    },
   ];
 
   const page2Fields: FormField[] = [
@@ -130,6 +123,14 @@ const useFormFields = (pageNumber: number): FormField[] => {
       component: DateField,
     },
     {
+      label: "Gender",
+      type: "radio",
+      value: formItems.gender,
+      action: (e) =>
+        dispatch(formActions.updateForm({ gender: e.target.value })),
+      component: RadioField,
+    },
+    {
       label: "Occupation",
       placeholder: "Occupation...",
       type: "text",
@@ -144,6 +145,7 @@ const useFormFields = (pageNumber: number): FormField[] => {
       value: formItems.company,
       action: (e) =>
         dispatch(formActions.updateForm({ company: e.target.value })),
+      component: ComboBoxField,
     },
     {
       label: "Position",

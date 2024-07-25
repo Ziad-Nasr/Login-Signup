@@ -6,6 +6,7 @@ import "./Signup.css";
 import { AppDispatch } from "../../store/store";
 import { useNavigate } from "react-router";
 import useFormFields from "../../useFormFields";
+import { ProgressBar } from "../../Components/ProgressBar";
 
 function Signup() {
   const navigate = useNavigate();
@@ -113,6 +114,11 @@ function Signup() {
                   Login
                 </span>
               </p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12">
+              <ProgressBar myValue={pageNumber * 33} />
             </div>
           </div>
         </form>
