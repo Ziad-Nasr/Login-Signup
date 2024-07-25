@@ -10,3 +10,43 @@
   font-size: 17px;
   margin-bottom: 10px;
 }
+/* InputField.css */
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.formLabel {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.inputField input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.inputField input:focus {
+  border-color: #76c7c0;
+  outline: none;
+}
+
+.inputField input::placeholder {
+  color: #999;
+}
+
+.inputField .errorText {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}

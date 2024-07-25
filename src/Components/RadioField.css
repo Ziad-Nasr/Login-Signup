@@ -1,0 +1,68 @@
+/* RadioGroup.css */
+
+.radio-group-root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.radio-group-label {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.radio-group-indicator {
+  margin-bottom: 16px;
+}
+
+.radio-group-items {
+  display: flex;
+  align-items: center;
+}
+
+.radio-group-item {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.radio-group-item-text {
+  font-size: 14px;
+  margin-right: 8px;
+  color: #333;
+}
+
+.radio-group-item-control {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  position: relative;
+  background: #fff;
+}
+
+.radio-group-item-control::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #4931a8;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.radio-group-item[aria-checked="true"] .radio-group-item-control::before {
+  opacity: 1;
+}
+
+.radio-group-item-hidden-input {
+  display: none;
+}

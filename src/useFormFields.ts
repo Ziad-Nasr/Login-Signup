@@ -2,7 +2,7 @@ import { ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "./store/store";
 import { formActions } from "./store/formSlice"; // Assuming formActions is defined in formSlice
-import RadioField from "./Components/RadioField"; // Assuming RadioField is a custom component
+import { RadioField } from "./Components/RadioField"; // Assuming RadioField is a custom component
 import React, { useState } from "react";
 import { DateField } from "./Components/DateField";
 import { ComboBoxField } from "./Components/ComboBoxField";
