@@ -1,6 +1,12 @@
 import React from "react";
-import { DatePicker, Portal } from "@ark-ui/react";
+import {
+  DatePicker,
+  DatePickerValueChangeDetails,
+  Portal,
+} from "@ark-ui/react";
 import "./DateField.css";
+import { AppDispatch } from "../store/store";
+import { useDispatch } from "react-redux";
 
 interface DateFieldProps {
   label: string;
@@ -8,8 +14,15 @@ interface DateFieldProps {
 }
 
 export function DateField({ label, setValue }: DateFieldProps) {
+  const dispatch: AppDispatch = useDispatch();
+
+  const handleValueChange = (details: { value: any }) => {
+    console.log(details.value[0].year);
+  };
+  // console.log(value);
+
   return (
-    <DatePicker.Root className="date-picker">
+    <DatePicker.Root className="date-picker" onValueChange={handleValueChange}>
       <DatePicker.Label className="date-picker-label">{label}</DatePicker.Label>
       <DatePicker.Control className="date-picker-control">
         <DatePicker.Input className="date-picker-input" />

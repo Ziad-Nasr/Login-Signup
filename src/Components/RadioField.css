@@ -1,4 +1,4 @@
-/* RadioGroup.css */
+/* RadioField.css */
 
 .radio-group-root {
   display: flex;
@@ -49,7 +49,7 @@
   content: "";
   width: 10px;
   height: 10px;
-  background: #4931a8;
+  background: #76c7c0;
   border-radius: 50%;
   position: absolute;
   top: 50%;
