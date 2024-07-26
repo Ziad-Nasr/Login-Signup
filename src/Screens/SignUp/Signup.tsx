@@ -117,7 +117,7 @@ function Signup() {
             </div>
           </div>
           <div className="row">
-            <div className="col-12">
+            <div className="col-12 mb-4">
               <ProgressBar myValue={pageNumber * 33} />
             </div>
           </div>
