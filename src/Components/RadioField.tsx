@@ -1,8 +1,8 @@
 import React from "react";
 import { RadioGroup } from "@ark-ui/react";
 import "./RadioField.css";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../store/store";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../store/store";
 import { formActions } from "../store/formSlice";
 
 interface RadioFieldProps {
@@ -23,8 +23,12 @@ export const RadioField: React.FC<RadioFieldProps> = ({ label, value }) => {
   console.log(value);
 
   return (
-    <RadioGroup.Root className="radio-group" onValueChange={handleValueChange}>
-      <RadioGroup.Label>Gender</RadioGroup.Label>
+    <RadioGroup.Root
+      className="radio-group"
+      onValueChange={handleValueChange}
+      value={value}
+    >
+      <RadioGroup.Label>{label}</RadioGroup.Label>
       <RadioGroup.Indicator />
       <div className="d-flex justify-content-evenly">
         {genders.map((item) => (

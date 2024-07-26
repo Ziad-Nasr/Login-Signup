@@ -1,12 +1,32 @@
 import React from "react";
 import { Combobox, Portal } from "@ark-ui/react";
 import "./ComboBoxField.css";
-
-export const ComboBoxField: React.FC = () => {
-  const items: string[] = ["React", "Solid", "Vue"];
+import { AppDispatch } from "../store/store";
+import { useDispatch } from "react-redux";
+import { formActions } from "../store/formSlice";
+interface ComboBoxFieldProps {
+  label: string;
+  value: string;
+}
+export const ComboBoxField: React.FC<ComboBoxFieldProps> = ({
+  label,
+  value,
+}) => {
+  const dispatch: AppDispatch = useDispatch();
+  const items: string[] = ["Ejada", "NBE", "Ejad"];
+  function handleValueChange(details: { value: any }) {
+    dispatch(formActions.updateForm({ company: details.value[0] }));
+  }
   return (
-    <Combobox.Root items={items} lazyMount unmountOnExit className="combobox">
-      <Combobox.Label className="combobox-label">Framework</Combobox.Label>
+    <Combobox.Root
+      items={items}
+      lazyMount
+      unmountOnExit
+      className="combobox"
+      onValueChange={handleValueChange}
+      value={[value]}
+    >
+      <Combobox.Label className="combobox-label">{label}</Combobox.Label>
       <Combobox.Control className="combobox-control">
         <Combobox.Input className="combobox-input" />
         <Combobox.Trigger className="combobox-trigger">Open</Combobox.Trigger>

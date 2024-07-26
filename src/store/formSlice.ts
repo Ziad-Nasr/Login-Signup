@@ -7,6 +7,7 @@ export interface Form {
   gender: string;
   email: string;
   password: string;
+  confirmPassword: string;
   dateOfBirth: string;
   phoneNumber: string;
   country: string;
@@ -27,6 +28,7 @@ const initialFormState: Form = {
   gender: "",
   email: "",
   password: "",
+  confirmPassword: "",
   dateOfBirth: "",
   phoneNumber: "",
   country: "",

@@ -1,19 +1,21 @@
 import { useState } from "react";
 import InputField from "../../Components/InputField";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Logo from "../../assets/badge.png";
 import "./Signup.css";
 import { AppDispatch } from "../../store/store";
 import { useNavigate } from "react-router";
 import useFormFields from "../../useFormFields";
 import { ProgressBar } from "../../Components/ProgressBar";
-
+import { formActions } from "../../store/formSlice";
 function Signup() {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
   const [pageNumber, setPageNumber] = useState(1);
   const formFields = useFormFields(pageNumber);
+  const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const formfield = useSelector((state: any) => state.myForm);
 
   const HandlePrev = (e: any) => {
     e.preventDefault();
@@ -26,8 +28,11 @@ function Signup() {
   const HandleNext = (e: any) => {
     e.preventDefault();
     if (pageNumber != 3) {
-      setPageNumber((page) => page + 1);
+      if (formfield.password === formfield.confirmPassword)
+        setPageNumber((page) => page + 1);
+      else alert("Password does not match");
     } else {
+      
     }
   };
 
@@ -75,11 +80,7 @@ function Signup() {
                 >
                   Back
                 </button>
-              ) : (
-                <button className="btn col-3" disabled>
-                  Back
-                </button>
-              )}
+              ) : null}
               {pageNumber === 3 ? (
                 <button
                   className="Login-Button col-3"

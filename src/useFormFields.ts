@@ -66,8 +66,9 @@ const useFormFields = (pageNumber: number): FormField[] => {
       label: "Confirm Password",
       placeholder: "Confirm Password...",
       type: "password",
-      value: confirmPassword,
-      action: (e) => setConfirmPassword(e.target.value),
+      value: formItems.confirmPassword,
+      action: (e) =>
+        dispatch(formActions.updateForm({ confirmPassword: e.target.value })),
     },
   ];
 
