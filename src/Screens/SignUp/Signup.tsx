@@ -8,6 +8,7 @@ import { useNavigate } from "react-router";
 import useFormFields from "../../useFormFields";
 import { ProgressBar } from "../../Components/ProgressBar";
 import { formActions } from "../../store/formSlice";
+
 function Signup() {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
@@ -32,7 +33,15 @@ function Signup() {
         setPageNumber((page) => page + 1);
       else alert("Password does not match");
     } else {
-      
+      fetch("https://63b02f17649c73f572cafbc3.mockapi.io/tokenn", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formfield),
+      })
+        .then(() => alert("Data Submitted"))
+        .then(() => navigate(-1));
     }
   };
 
