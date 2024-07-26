@@ -1,29 +1,43 @@
 import React from "react";
-import {
-  DatePicker,
-  DatePickerValueChangeDetails,
-  Portal,
-} from "@ark-ui/react";
+import { DatePicker, Portal } from "@ark-ui/react";
 import "./DateField.css";
 import { AppDispatch } from "../store/store";
 import { useDispatch } from "react-redux";
+import { formActions } from "../store/formSlice";
 
 interface DateFieldProps {
   label: string;
+  value: string;
   setValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function DateField({ label, setValue }: DateFieldProps) {
+export function DateField({ label, value, setValue }: DateFieldProps) {
   const dispatch: AppDispatch = useDispatch();
+  var myDob: string = "2000-12-01"; // Ensure day and month are always two digits
 
   const handleValueChange = (details: { value: any }) => {
-    console.log(details.value[0].year);
+    const day = details.value[0].day; // Ensure two digits
+    const month = details.value[0].month; // Ensure two digits
+    const year = details.value[0].year;
+
+    myDob = `${month}-${day}-${year}`;
+
+    const myDobArray = myDob.split("-");
+
+    dispatch(formActions.updateForm({ dob: myDob }));
   };
-  // console.log(value);
+  console.log(value);
+  // Ensure initial value is split correctly
+  const [year, month, day] = myDob.split("-");
+  const myDobISO = `${year}-${month}-${day}`;
 
   return (
     <DatePicker.Root className="date-picker" onValueChange={handleValueChange}>
-      <DatePicker.Label className="date-picker-label">{label}</DatePicker.Label>
+      <DatePicker.Label className="date-picker-label">
+        {label}
+        {" - Set For: "}
+        {value}
+      </DatePicker.Label>
       <DatePicker.Control className="date-picker-control">
         <DatePicker.Input className="date-picker-input" />
         <DatePicker.Trigger className="date-picker-trigger">
