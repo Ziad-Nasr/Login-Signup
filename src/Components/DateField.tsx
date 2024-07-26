@@ -26,7 +26,6 @@ export function DateField({ label, value, setValue }: DateFieldProps) {
 
     dispatch(formActions.updateForm({ dob: myDob }));
   };
-  console.log(value);
   // Ensure initial value is split correctly
   const [year, month, day] = myDob.split("-");
   const myDobISO = `${year}-${month}-${day}`;

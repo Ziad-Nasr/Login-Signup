@@ -17,26 +17,21 @@ export const RadioField: React.FC<RadioFieldProps> = ({ label, value }) => {
   const genders: Gender[] = ["Male", "Female"];
 
   const handleValueChange = (details: { value: string }) => {
+    console.log(details.value);
     dispatch(formActions.updateForm({ gender: details.value }));
   };
   console.log(value);
 
   return (
-    <RadioGroup.Root
-      className="radio-group-root"
-      value={value}
-      onValueChange={handleValueChange}
-    >
-      <RadioGroup.Label className="radio-group-label">{label}</RadioGroup.Label>
-      <RadioGroup.Indicator className="radio-group-indicator" />
-      <div className="radio-group-items">
+    <RadioGroup.Root className="radio-group" onValueChange={handleValueChange}>
+      <RadioGroup.Label>Gender</RadioGroup.Label>
+      <RadioGroup.Indicator />
+      <div className="d-flex justify-content-evenly">
         {genders.map((item) => (
           <RadioGroup.Item key={item} value={item} className="radio-group-item">
-            <RadioGroup.ItemText className="radio-group-item-text">
-              {item}
-            </RadioGroup.ItemText>
+            <RadioGroup.ItemHiddenInput />
             <RadioGroup.ItemControl className="radio-group-item-control" />
-            <RadioGroup.ItemHiddenInput className="radio-group-item-hidden-input" />
+            <RadioGroup.ItemText>{item}</RadioGroup.ItemText>
           </RadioGroup.Item>
         ))}
       </div>
