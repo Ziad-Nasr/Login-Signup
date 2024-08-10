@@ -6,6 +6,9 @@ import { RadioField } from "./Components/RadioField"; // Assuming RadioField is 
 import React, { useState } from "react";
 import { DateField } from "./Components/DateField";
 import { ComboBoxField } from "./Components/ComboBoxField";
+import DropDown from "./Components/DropDown";
+import MutliSelect from "./Components/MultiSelect";
+import Builds from "./Components/Builds";
 
 interface FormField {
   label: string;
@@ -156,6 +159,36 @@ const useFormFields = (pageNumber: number): FormField[] => {
       action: (e) =>
         dispatch(formActions.updateForm({ position: e.target.value })),
     },
+    {
+      label: "Experience",
+      placeholder: "Experience...",
+      type: "text",
+      value: formItems.experience,
+      action: (e) =>
+        dispatch(formActions.updateForm({ experience: e.target.value })),
+      component: DropDown,
+    },
+  ];
+
+  const page4Fields: FormField[] = [
+    {
+      label: "Skills",
+      placeholder: "Skills...",
+      type: "text",
+      value: formItems.education,
+      action: (e) =>
+        dispatch(formActions.updateForm({ education: e.target.value })),
+      component: MutliSelect,
+    },
+    {
+      label: "Languages",
+      placeholder: "Languages...",
+      type: "text",
+      value: formItems.education,
+      action: (e) =>
+        dispatch(formActions.updateForm({ education: e.target.value })),
+      component: Builds,
+    },
   ];
 
   switch (pageNumber) {
@@ -165,6 +198,8 @@ const useFormFields = (pageNumber: number): FormField[] => {
       return page2Fields;
     case 3:
       return page3Fields;
+    case 4:
+      return page4Fields;
     default:
       return [];
   }

@@ -6,7 +6,6 @@ interface ProgressBarProps {
 }
 export const ProgressBar: React.FC<ProgressBarProps> = ({ myValue }) => (
   <Progress.Root className="progress-root" value={myValue}>
-    <Progress.ValueText className="progress-value-text" />
     <Progress.Track className="progress-track">
       <Progress.Range className="progress-range" />
     </Progress.Track>

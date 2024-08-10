@@ -28,7 +28,7 @@ function Signup() {
 
   const HandleNext = (e: any) => {
     e.preventDefault();
-    if (pageNumber != 3) {
+    if (pageNumber != 4) {
       if (formfield.password === formfield.confirmPassword)
         setPageNumber((page) => page + 1);
       else alert("Password does not match");
@@ -90,7 +90,7 @@ function Signup() {
                   Back
                 </button>
               ) : null}
-              {pageNumber === 3 ? (
+              {pageNumber === 4 ? (
                 <button
                   className="Login-Button col-3"
                   onClick={(e) => {
@@ -128,7 +128,7 @@ function Signup() {
           </div>
           <div className="row">
             <div className="col-12 mb-4">
-              <ProgressBar myValue={pageNumber * 33} />
+              <ProgressBar myValue={pageNumber * 25} />
             </div>
           </div>
         </form>

@@ -19,6 +19,8 @@ export interface Form {
   occupation: string;
   company: string;
   position: string;
+  experience: string;
+  education: string;
 }
 
 const initialFormState: Form = {
@@ -40,6 +42,8 @@ const initialFormState: Form = {
   occupation: "",
   company: "",
   position: "",
+  experience: "",
+  education: "",
 };
 
 const formSlice = createSlice({

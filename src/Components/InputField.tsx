@@ -23,6 +23,7 @@ export default function InputField({
         value={value}
         onChange={setValue}
         type={type}
+        className="formInput"
       />
       {/* <Field.ErrorText>Error Info</Field.ErrorText> */}
     </Field.Root>

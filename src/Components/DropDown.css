@@ -1,0 +1,93 @@
+/* Basic container styling */
+.select-root {
+  font-family: Arial, sans-serif;
+}
+/* Label styling */
+.select-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Control and trigger styling */
+.select-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  background-color: #fff;
+  cursor: pointer;
+  width: 100%;
+  height: 45px;
+}
+
+.select-trigger {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  padding: 0px;
+  margin: 5px;
+}
+
+.select-value-text {
+  margin-right: 8px;
+}
+
+.select-indicator {
+  display: flex;
+  align-items: center;
+}
+
+/* Clear trigger styling */
+.select-clear-trigger {
+  margin-left: 8px;
+  cursor: pointer;
+  color: red;
+}
+
+/* Dropdown content styling */
+.select-content {
+  position: absolute;
+  background-color: rgb(201, 201, 201);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 4px;
+  z-index: 1000;
+  width: 400px;
+}
+
+/* Item group styling */
+.select-item-group {
+  padding: 8px;
+}
+
+.select-item-group-label {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Item styling */
+.select-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.select-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Item text styling */
+.select-item-text {
+  flex-grow: 1;
+}
+
+/* Item indicator styling */
+.select-item-indicator {
+  margin-left: 8px;
+  color: green;
+}
